@@ -20,7 +20,7 @@ The URL Checker is an application designed to allow the user to monitor the stat
 1. Clone the GitHub repository to an empty folder on your local machine
 
 	```
-    git clone repo .
+    git clone https://github.com/hunter-young/url-checker.git .
     ```
 2. Create a dotenv (.env) file for credentials and app configurations in the top level directory of the repository (same as main.py)
 
@@ -63,7 +63,7 @@ The URL Checker is an application designed to allow the user to monitor the stat
 1. Clone the GitHub repository to an empty folder on your local machine
 
 	```
-    git clone repo .
+    git clone https://github.com/hunter-young/url-checker.git .
     ```
 2. Create a dotenv (.env) file for credentials and app configurations in the top level directory of the repository (same as main.py)
 
