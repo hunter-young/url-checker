@@ -55,8 +55,7 @@ The URL Checker is an application designed to allow the user to monitor the stat
 	```
     docker run -p 80:80 url-checker:demo
     ```
-6. Navigate to <http://localhost> and login with the admin username and password set in the .env file
-
+6. Navigate to <http://localhost> and login with the admin username and password set in the .env file. You may view the API documentation at <http://localhost/docs#/>
 
 ## Manual Build on Your Local Machine
 
@@ -118,7 +117,4 @@ The URL Checker is an application designed to allow the user to monitor the stat
     ```
     python main.py
     ```
-10. Navigate to <http://localhost> and login with the admin username and password set in the .env file
-
-
-
+10. Navigate to <http://localhost> and login with the admin username and password set in the .env file. You may view the API documentation at <http://localhost/docs#/>
