@@ -1,0 +1,10 @@
+# byte-compiled / optimized / DLL files
+__pycache__/
+core/__pycache_
+*.pyc
+
+# db
+*.db
+
+# env
+.env
