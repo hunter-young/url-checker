@@ -17,8 +17,7 @@ async def get_receivers(session: database.AsyncSession,
 
 async def get_state(response, check_definition: validations.Check):
     if check_definition.expectedString:
-        if check_definition.expectedString in response.text:
-            expected_string_passes = True
+        expected_string_passes = check_definition.expectedString in response.text
     else:
         expected_string_passes = True
     status_passes = response.status_code == check_definition.expectedStatus        
