@@ -29,15 +29,17 @@ async def run_check(check_definition: validations.Check,
     response = await client.get(check_definition.url)
     success = await get_state(response, check_definition)
     if not success:
-        async with database.OrmSession() as session:
-            async with session.begin():
-                receivers = await get_receivers(session, check_definition.id)
-        # errors shouldn't be fatal, so we'll let them bubble up to stdout
-        await notifications.send_alert(check_definition, receivers)
-        fail_count += 1
-        if fail_count == settings.max_failures:
-            # errors shouldn't be fatal, so we'll let them bubble up to stdout
-            await notifications.send_admin_alert(check_definition)
+        try:
+            async with database.OrmSession() as session:
+                async with session.begin():
+                    receivers = await get_receivers(session, check_definition.id)
+            await notifications.send_alert(check_definition, receivers)
+            fail_count += 1
+            if fail_count == settings.max_failures:
+                await notifications.send_admin_alert(check_definition)
+        except Exception as e:
+            # turns out that errors from smtplib are fatal to the job...
+            print('Error handling failed status check: {}'.format(e))
     else:
         fail_count = 0
     check_result = validations.CheckResultBase(
